@@ -12,14 +12,14 @@ create a single main.cpp that contains code samples and implementations of each 
 using namespace std; 
 
 //Credit https://www.geeksforgeeks.org/passing-vector-constructor-c/ clarifications added
-class MyClassVector1 
-{ 
+class MyClassVector1
+{
   private:  
       vector<int> vec; 
   public: 
-      MyClassVector1 (vector<int> v)  //parameterized constructor
+      MyClassVector1(vector<int> v) //parameterized constructor
       { 
-        vec = v; 
+        vec = v;
       } 
       void print() 
       { 
@@ -29,6 +29,42 @@ class MyClassVector1
               cout << vec[i] << " "; 
           }    
       } 
+};
+class MyClassVector2
+{
+ private:  
+      vector<int> vec1; 
+  public: 
+      MyClassVector2(vector<int> v) //parameterized constructor
+      { 
+        vec1 = v;
+      } 
+      void print() 
+      { 
+          /// print the value of vector 
+          for (int i = 0; i < vec1.size(); i++) 
+          {
+              cout << vec1[i] << " "; 
+          }    
+      }  
+};
+class MyClassVector3
+{
+  private:  
+      vector<int> vector; 
+  public: 
+      MyClassVector3(vector<int> v) //parameterized constructor
+      { 
+        vector = v;
+      } 
+      void print() 
+      { 
+          /// print the value of vector 
+          for (int i = 0; i < vector.size(); i++) 
+          {
+              cout << vector[i] << " "; 
+          }    
+      }  
 };
 
 int main() 
@@ -79,7 +115,7 @@ int main()
 
     /****Section_Name***Vector_as_Class_Member*/ 
     //Credit https://www.geeksforgeeks.org/passing-vector-constructor-c/
-
+    //Continue with MyClassVector2 and MyClassVector3
    cout << "\nVector_as_Class_Member" << endl; 
     vector<int> vec; 
         for (int i = 1; i <= 5; i++) 
@@ -88,23 +124,22 @@ int main()
         obj.print(); 
 
     cout << "\nVector_as_Class_Member" << endl; 
-    vector<int> vec; 
+    vector<int> vec1; 
         for (int i = 1; i <= 5; i++) 
             vec.push_back(i); 
-        MyClassVector2 obj(vec); 
+        MyClassVector2 obj(vec1); 
         obj.print(); 
 
     cout << "\nVector_as_Class_Member" << endl; 
-    vector<int> vec; 
+    vector<int> vector; 
         for (int i = 1; i <= 5; i++) 
             vec.push_back(i); 
-        MyClassVector3 obj(vec); 
+        MyClassVector3 obj(vector); 
         obj.print(); 
       
-      //Continue with MyClassVector2 and MyClassVector3
 
     /****Section_Name***STL_Iterators*/ 
-
+    //vector<int> 
 
     /****Section_Name*** Stack*/
 
