@@ -53,10 +53,10 @@ class MyClassVector3
   private:  
       vector<int> vector; 
   public: 
-      MyClassVector3(vector<int> v) //parameterized constructor
+      MyClassVector3(::vector <int> v)//parameterized constructor
       { 
         vector = v;
-      } 
+      } ;
       void print() 
       { 
           /// print the value of vector 
@@ -88,9 +88,9 @@ int main()
     vi.push_back(3);
 
    // add 3 elements to the vs vector
-   vs.push_back(1);
-   vs.push_back(2);
-   vs.push_back(3);
+    vs.push_back("1");
+    vs.push_back("2");
+    vs.push_back("3");
 
    // display the 3 elements in the vd vector
    cout << "\nValues in vd: \n"; 
@@ -100,14 +100,14 @@ int main()
    }
 
     //display the 3 elements in the vi vector
-    cout << "nValues in vi: \n";
+    cout << "\nValues in vi: \n";
     for(int vals : vi)
     {
       cout << vals << endl;
     }
 
    // display the 3 elements in the vs vector
-   cout << "nValues in vs: \n";
+   cout << "\nValues in vs: \n";
    for(string vals : vs)
    {
      cout << vals << endl;
@@ -127,19 +127,20 @@ int main()
     vector<int> vec1; 
         for (int i = 1; i <= 5; i++) 
             vec.push_back(i); 
-        MyClassVector2 obj(vec1); 
-        obj.print(); 
+        MyClassVector2 a(vec1); 
+        a.print(); 
 
     cout << "\nVector_as_Class_Member" << endl; 
     vector<int> vector; 
         for (int i = 1; i <= 5; i++) 
             vec.push_back(i); 
-        MyClassVector3 obj(vector); 
-        obj.print(); 
+        MyClassVector3 b(vector); 
+        b.print(); 
       
 
     /****Section_Name***STL_Iterators*/ 
     //vector<int> 
+    
 
     /****Section_Name*** Stack*/
 
