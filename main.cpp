@@ -83,7 +83,7 @@ int main( int argc, char* argv[])
     vector<double> vd; //vd elments are floating point numbers
     vector<int> vi; //vi elements are integer numbers 
     vector<string> vs; //vs elements are string objects 
-
+  
     //Expand this code to:
 
     //add 3 elements to the vd vector
@@ -223,7 +223,7 @@ int main( int argc, char* argv[])
     /****Section_Name**** Map_Insert*/
     //Write the code as presented in: 14. std::map::insert
     MapT amap;
-    cout << "\n\nMap_insert:" ;
+    cout << "\n\nMap_insert:" ; 
     pair< MapIterT, bool> result = 
       amap.insert( make_pair( "Fred", 45 ) );
 
@@ -250,13 +250,13 @@ int main( int argc, char* argv[])
           string( "Directory" ))
       );
     }
-    assert( phone_book.size() == 3 );
+    assert( phone_book.size() == 3 ); //setting the total values store in phone_book
     map< string, string >::const_iterator it2;
     for ( it2 = phone_book.begin(); it2 != phone_book.end(); ++it2 )
     {
       cout  
-           << " " << it2->first
-           << " " << it2->second
+           << " " << it2->first // print first element in directory 
+           << " " << it2->second // print second element in directory
            << endl;
     }
     //Write comments that help one better understand what the code is doing.
@@ -265,8 +265,8 @@ int main( int argc, char* argv[])
     //Write the code as presented in: 23. sort example
     int arr[ 100 ];
     sort( arr, arr + 100 );
-    vector; v1;
-    sort( v1.begin(), v1.end() );
+    ::vector<int> vi2;
+    sort( vi2.begin(), vi2.end() );
 
     //Write comments that help one better understand what the code is doing.
 
@@ -274,7 +274,7 @@ int main( int argc, char* argv[])
     //Write the code as presented in: 25. count_if and predicate function
     bool less_than_7( int value );
     {
-       return value < 7;
+       return false < 7;
     }
 
     ::vector< int > v1;
