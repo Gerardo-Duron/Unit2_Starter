@@ -8,8 +8,17 @@ create a single main.cpp that contains code samples and implementations of each 
 #include <iostream>
 #include <vector>
 #include <algorithm> 
+#include <iterator>
 #include <string>
-using namespace std; 
+#include <stack>
+#include <set>
+#include <utility>
+#include <map>
+#include <cassert>
+using namespace std;
+
+typedef map<string, int> MapT;
+typedef MapT::const_iterator MapIterT;
 
 //Credit https://www.geeksforgeeks.org/passing-vector-constructor-c/ clarifications added
 class MyClassVector1
@@ -67,7 +76,7 @@ class MyClassVector3
       }  
 };
 
-int main() 
+int main( int argc, char* argv[]) 
 {
     /****Section_Name***Vectors*/ 
     //Write the base code for: 5. std::vector example
@@ -116,66 +125,161 @@ int main()
     /****Section_Name***Vector_as_Class_Member*/ 
     //Credit https://www.geeksforgeeks.org/passing-vector-constructor-c/
     //Continue with MyClassVector2 and MyClassVector3
-   cout << "\nVector_as_Class_Member" << endl; 
+   cout << "\n\nVector_as_Class_Member" << endl; 
     vector<int> vec; 
         for (int i = 1; i <= 5; i++) 
             vec.push_back(i); 
         MyClassVector1 obj(vec); 
         obj.print(); 
 
-    cout << "\nVector_as_Class_Member" << endl; 
+    cout << "\n\nVector_as_Class_Member" << endl; 
     vector<int> vec1; 
         for (int i = 1; i <= 5; i++) 
-            vec.push_back(i); 
+            vec1.push_back(i); 
         MyClassVector2 a(vec1); 
         a.print(); 
 
-    cout << "\nVector_as_Class_Member" << endl; 
+    cout << "\n\nVector_as_Class_Member" << endl; 
     vector<int> vector; 
         for (int i = 1; i <= 5; i++) 
-            vec.push_back(i); 
+            vector.push_back(i); 
         MyClassVector3 b(vector); 
         b.print(); 
       
 
     /****Section_Name***STL_Iterators*/ 
-    //vector<int> 
+    //vector<int>
+    ::vector <int> vint (10);
+    vint[0] = 1;
+    vint[1] = 2;
+    vint[2] = 3;
+    vint[3] = 4;
+    vint[4] = 5;
+    vint[5] = 6;
+    vint[6] = 7;
+    vint[7] = 8;
+    vint[8] = 9;
+    vint[9] = 10;
     
-
+    cout<< "\n\nSTL_ITERATORS: ";
+    ::vector<int>::iterator it;
+    for (it = vint.begin(); it !=vint.end(); ++it)
+    {
+      cout << " "<< *it;
+    }
+    
     /****Section_Name*** Stack*/
+    stack<int> st;
+    st.push( 100 ); // set number on the stack
+    assert ( st.size() == 1 ); // verifing number
+    assert( st.top() == 100 ); // verifing top value
 
+    st.top() = 456; // setting new value
+    assert( st.top() == 456 ); 
+
+    st.pop();
+    assert( st.empty() == true );
 
     //Write comments that help one better understand what the code is doing.
 
     /****Section_Name**** Set*/
     //Write the code as presented in: 3. std::set
-
+    set< int > iset;
+    cout << "\n\nstd:: Set:";
+    iset.insert( 11 );  // settign values
+    iset.insert( -11 );
+    iset.insert( 55 );
+    iset.insert( 22 );
+    iset.insert( 22 );
+    if ( iset.find( 55 ) !=iset.end() ) 
+        iset.insert( 55 );
+    {
+      assert( iset.size() == 4 ); // rechecking for size
+      set<int>::iterator it;
+      for ( it= iset.begin(); it != iset.end(); it++)
+      {
+        cout << " " << *it;
+      }
+    }
     //Write comments that help one better understand what the code is doing.
 
     /****Section_Name****Pair_Structure*/
     //Write the code as presented in: 4. std::pair structure
+    pair< string, string > strstr;
+    cout << "\n\nPair_Structure: "; // printng the name of functions
+    strstr.first = "HELLO"; // printing the first string
+    strstr.second = "WORLD"; // printing the second string
+
+    pair< int, string > intstr;
+    intstr.first = 1;
+    intstr.second = "one";
+
+    pair< string, int > strint( "two", 2 ); // pairing first and second strings
+    assert( strint.first == "two" );
+    assert( strint.second == 2 );
 
     //Write comments that help one better understand what the code is doing.
 
     /****Section_Name**** Map_Insert*/
     //Write the code as presented in: 14. std::map::insert
+    MapT amap;
+    cout << "\n\nMap_insert:" ;
+    pair< MapIterT, bool> result = 
+      amap.insert( make_pair( "Fred", 45 ) );
 
+    assert( result.second ==  true );
+    assert( result.first->second == 45 );
+
+    result = amap.insert( make_pair( "Fred", 54 ) );
+    assert( result.second == false );
+    assert( result.first->second == 45 );
     //Write comments that help one better understand what the code is doing.
 
     /****Section_Name****Map_Summary*/
     //Write the code as presented in: 16. Map summary
-
+    map< string, string > phone_book;
+    cout << "\n\nMap_Summary:\n";
+    phone_book[ "411" ] = "Directory";
+    phone_book[ "911" ] = "Emergency";
+    phone_book[ "508-678-2811" ] = "BCC";
+    if ( phone_book.find( "411" ) != phone_book.end() )
+    {
+      phone_book.insert(
+        make_pair(
+          string( "411" ),
+          string( "Directory" ))
+      );
+    }
+    assert( phone_book.size() == 3 );
+    map< string, string >::const_iterator it2;
+    for ( it2 = phone_book.begin(); it2 != phone_book.end(); ++it2 )
+    {
+      cout  
+           << " " << it2->first
+           << " " << it2->second
+           << endl;
+    }
     //Write comments that help one better understand what the code is doing.
 
     /****Section_Name**** Sort_Algorithm*/
     //Write the code as presented in: 23. sort example
+    int arr[ 100 ];
+    sort( arr, arr + 100 );
+    vector; v1;
+    sort( v1.begin(), v1.end() );
 
     //Write comments that help one better understand what the code is doing.
 
     /****Section_Name****Predicate_Algorithm*/
     //Write the code as presented in: 25. count_if and predicate function
+    bool less_than_7( int value );
+    {
+       return value < 7;
+    }
 
+    ::vector< int > v1;
+    int count_less = std::count_if( v1.begin(), v1.end(), less_than_7 );
     //Write comments that help one better understand what the code is doing. 
 
       return 0; 
- }
+ };
